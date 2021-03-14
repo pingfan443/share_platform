@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客详情</title>
+    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="../static/css/semantic.min.css" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+<!--底部栏-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive m-opacity">
+    <!--容器-->
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini" >微信小程序</h4>
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/img/wechat.jpg" class="ui rounded image" alt="" style="width: 110px" th:src="@{/img/wechat.jpg}">
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">联系站主</h4>
+                <div class="ui inverted link list m-margin-top-large">
+                    <div href="#" class="m-text-thin">Email：pingfan23@foxmail.com</div>
+                    <div href="#" class="m-text-thin">QQ：971294083</div>
+                </div>
+            </div>
+
+            <div class="four wide column" >
+                <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">易分享</h4>
+                <p class="m-text-thin m-text-spaced m-font-size-text-mini m-opacity-tiny m-margin-top-large" th:text="#{index.footer.share}">易分享旨在打造完善的大学生公益交流平台，为大学生创造良好的交流平台</p>
+            </div>
+            <!--运行时间统计  m-font-size-text-->
+            <div  class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">易分享信息</h4>
+                <div id="blog-message" class="ui inverted link list m-margin-top-large" th:fragment="blogMessage">
+                    <p href="#" class="m-text-thin"> 文章总数：<span class="m-text-thin m-font-color " th:text="${blogTotal}" > 14 </span> 篇</p>
+                    <p href="#" class="m-text-thin"> 访问总数： <span class="m-text-thin m-font-color" th:text="${blogViewTotal}"> 14 </span> 篇</p>
+                    <p href="#" class="m-text-thin"> 评论总数： <span class="m-text-thin m-font-color" th:text="${blogCommentTotal}"> 14 </span> 篇</p>
+                    <p href="#" class="m-text-thin"> 留言总数： <samp class="m-text-thin m-font-color" th:text="${blogMessageTotal}"> 14 </samp> 篇</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div style="margin-top: -18px" class="ui inverted m-text-thin m-text-spaced m-font-color">本站已营业：<span id="htmer_time" class="item m-text-thin"></span></div>
+        <!-- <a rel="nofollow" href="http://www.beian.miit.gov.cn" target="_blank">赣ICP备20004408号-1</a> -->
+    </div>
+    </div>
+
+</footer>
+<script>
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+</script>
+</body>
+</html>
